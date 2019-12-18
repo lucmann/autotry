@@ -11,7 +11,7 @@ from requests.exceptions import HTTPError
 from io import BytesIO
 from PIL import Image, ImageEnhance
 
-HOST = "http://www.dyyy120.com"
+HOST = ""
 image_name = "vcode.jpg"
 install_path = os.getenv('APPOINT_DBS_PATH', "/home/git")
 
