@@ -1,0 +1,40 @@
+{
+    "HospitalGuid" : "015d25ea-a9a1-bad2-4a20-c1c388d66557",
+    "AppointmentType" : "1",
+    "OperateType" : "NormalAppointment",
+    "AppointmentId" : "00d28cc3-ab06-98d8-4791-f968d3a516ab",
+    "PayChannel": "0e80b9d4-0e5d-4635-8e31-a645010baf28",
+    "PayType" : "OfflinePay",
+    "Patients" : {
+        "onion" : {
+            "LoginName" : "",
+            "IdCode" : "",
+            "Password" : "",
+            "PatientId" : ""
+        },
+        "tomato" : {
+            "LoginName" : "",
+            "IdCode" : "",
+            "Password" : "",
+            "PatientId" : ""
+        }
+    },
+    "Doctors" : {
+        "" : {
+            "DoctorId" : "",
+            "ClinicLabelId" : "",
+            "ClinicDate" : "",
+            "Noon" : "",
+            "NoonText" : "",
+            "SchmId" : ""
+        },
+        "" : {
+            "DoctorId" : "",
+            "ClinicLabelId" : "",
+            "ClinicDate" : "",
+            "Noon" : "",
+            "NoonText" : "",
+            "SchmId" : ""
+        }
+    }
+}
