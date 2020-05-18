@@ -13,7 +13,7 @@ from PIL import Image, ImageEnhance
 
 HOST = ""
 image_name = "vcode.jpg"
-install_path = os.getenv('APPOINT_DBS_PATH', "/home/git")
+install_path = os.getenv('APPOINT_DBS_PATH', "/home/luc/github")
 
 dbs_file = install_path + "/autotry/doctors.json"
 log_file = install_path + "/autotry/appoint.log"
@@ -25,7 +25,7 @@ logger.setLevel(logging.DEBUG)
 
 
 class Appointment:
-    def __init__(self, host=HOST, doctor="", patient=""):
+    def __init__(self, host=HOST, doctor="ShengWei", patient="onion"):
         self.session = requests.Session()
         self.host = host
         self.dbs = self.load_dbs()
