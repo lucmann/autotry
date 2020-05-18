@@ -23,6 +23,7 @@ logging.basicConfig(filename=log_file,
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
+
 class Appointment:
     def __init__(self, host=HOST, doctor="", patient=""):
         self.session = requests.Session()
@@ -31,11 +32,11 @@ class Appointment:
         self.doctor = self.dbs['Doctors'][doctor]
         self.patient = self.dbs['Patients'][patient]
         self.urls = {
-            "vcode" : "/Account/GetValidateCode",
-            "login" : "/api/hbapi/account/login?hbsign=",
-            "time"  : "/api/hbapi/standard/getconfirmappoint?hbsign=",
-            "pay"   : "/api/hbapi/booking/clinicpay?hbsign=",
-            "schm"  : "/api/hbapi/booking/searchdoctorappointments?hbsign="
+            "vcode": "/Account/GetValidateCode",
+            "login": "/api/hbapi/account/login?hbsign=",
+            "time": "/api/hbapi/standard/getconfirmappoint?hbsign=",
+            "pay": "/api/hbapi/booking/clinicpay?hbsign=",
+            "schm": "/api/hbapi/booking/searchdoctorappointments?hbsign="
         }
 
     def load_dbs(self):
@@ -85,11 +86,12 @@ class Appointment:
         }
 
         response = self.session.post(self.get_full_url(self.urls['login']),
-                                    headers=headers, data=payload)
+                                     headers=headers, data=payload)
         logger.info(response.json())
 
     def book(self):
-        book_url = "/Appointment/ConfirmAppoint?ClinicLabelId={}&ClinicDate={}&NoonId={}&NoonText={}&HospitalGuid={}&SchmId={}".format(
+        book_url = "/Appointment/ConfirmAppoint?ClinicLabelId={}&ClinicDate={}&NoonId={}&NoonText={}&HospitalGuid={" \
+                   "}&SchmId={}".format(
             self.doctor['ClinicLabelId'],
             self.doctor['ClinicDate'],
             self.doctor['Noon'],
@@ -169,16 +171,20 @@ class Appointment:
         result = response.json()
         logger.info(result)
 
-        return (result['ResultCode'] == 1)
+        return result['ResultCode'] == 1
+
 
 def opt_img_color(img, factor):
     return ImageEnhance.Color(img).enhance(factor)
 
+
 def opt_img_contrast(img, factor):
     return ImageEnhance.Contrast(img).enhance(factor)
 
+
 def convert_img_mode(img, mode):
     return img.convert(mode)
+
 
 def binarize(img):
     threshold = 150
@@ -190,6 +196,7 @@ def binarize(img):
             table.append(1)
 
     return img.point(table, "1")
+
 
 if __name__ == "__main__":
     poor = Appointment()
